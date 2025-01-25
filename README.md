@@ -1,6 +1,6 @@
 # Final Assignment Repository
 
-This repository contains the final assignment for the Computer Workshop course. It demonstrates skills in Git, \LaTeX{}, GitHub Actions, and more.
+This repository contains the final assignment for the Computer Workshop course. It demonstrates skills in Git, LaTeX, GitHub Actions, and more.
 
 ## Features
 
