@@ -1,0 +1,16 @@
+\contentsline {section}{\numberline {1}Git and GitHub}{1}{}%
+\contentsline {subsection}{\numberline {1.1}Repository Initialization and Commits}{1}{}%
+\contentsline {subsection}{\numberline {1.2}GitHub Actions for LaTeX Compilation}{1}{}%
+\contentsline {section}{\numberline {2}Exploration Tasks}{1}{}%
+\contentsline {subsection}{\numberline {2.1}Vim Advanced Features}{1}{}%
+\contentsline {subsection}{\numberline {2.2}Memory Profiling}{1}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Memory Leak}{1}{}%
+\contentsline {subsubsection}{\numberline {2.2.2}Memory Profilers}{1}{}%
+\contentsline {subsection}{\numberline {2.3}GNU/Linux Bash Scripting}{1}{}%
+\contentsline {subsubsection}{\numberline {2.3.1}fzf}{1}{}%
+\contentsline {subsubsection}{\numberline {2.3.2}Using fzf to Find Your Favorite PDF}{1}{}%
+\contentsline {subsubsection}{\numberline {2.3.3}Opening the File Using Zathura}{1}{}%
+\contentsline {section}{\numberline {3}Git and FOSS}{1}{}%
+\contentsline {subsection}{\numberline {3.1}README.md}{1}{}%
+\contentsline {subsection}{\numberline {3.2}Issues}{1}{}%
+\contentsline {subsection}{\numberline {3.3}FOSS Contribution}{1}{}%
