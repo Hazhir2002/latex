@@ -144,10 +144,41 @@ valgrind --leak-check=full ./your_program
 \subsection{GNU/Linux Bash Scripting}
 
 \subsubsection{fzf}
+\textbf{What is Fuzzy Searching?}
+Fuzzy searching matches approximate strings instead of exact matches. It’s useful when you don’t remember the exact name or details of what you’re looking for.
+
+\textbf{Command Explanation:}
+\begin{lstlisting}[language=bash]
+ls | fzf
+\end{lstlisting}
+This lists all files and directories (\texttt{ls}) and pipes them to \texttt{fzf}, which allows you to interactively search and filter the results.
 
 \subsubsection{Using fzf to Find Your Favorite PDF}
+\begin{enumerate}
+  \item \textbf{Command to List All PDFs:}
+  \begin{lstlisting}[language=bash]
+  fd . --extension pdf
+  \end{lstlisting}
+
+  \item \textbf{Command to Use fzf for Selection:}
+  \begin{lstlisting}[language=bash]
+  fd . --extension pdf | fzf
+  \end{lstlisting}
+\end{enumerate}
 
 \subsubsection{Opening the File Using Zathura}
+\textbf{Command to Open PDF:}
+\begin{lstlisting}[language=bash]
+zathura $(fd . --extension pdf | fzf)
+\end{lstlisting}
+This command combines \texttt{fd}, \texttt{fzf}, and \texttt{zathura}:
+\begin{enumerate}
+    \item \texttt{fd} lists all PDFs.
+    \item \texttt{fzf} lets you interactively select one.
+    \item \texttt{zathura} opens the selected file.
+\end{enumerate}
+
+\newpage
 
 \section{Git and FOSS}
 \subsection{README.md}
