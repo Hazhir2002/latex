@@ -123,6 +123,11 @@ Splits and Buffers allow you to work with multiple files or views simultaneously
 \subsection{Memory Profiling}
 
 \subsubsection{Memory Leak}
+A memory leak occurs when a program allocates memory dynamically but fails to release it after use. Over time, this can cause the system to run out of memory, leading to crashes or poor performance.
+\begin{lstlisting}[language=C]
+int *ptr = malloc(sizeof(int) * 100);
+// Forget to free the memory: free(ptr);
+\end{lstlisting}
 
 \subsubsection{Memory Profilers}
 
