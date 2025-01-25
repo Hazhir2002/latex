@@ -1,25 +1,20 @@
-name: Build and Release LaTeX Document
-
+name: Release Compiled PDF
 on:
   push:
     tags:
-      - "*"
-
-permissions:
-  contents: write
+      - "*.*.*"
 
 jobs:
-  build:
+  build_latex:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Set up LaTeX
-        run: sudo apt-get update && sudo apt-get install -y texlive-full
-
-      - name: Compile LaTeX Document
-        run: pdflatex -interaction=nonstopmode -halt-on-error -file-line-error assignment.tex
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: assignment.tex
 
       - name: Create Release
         id: create_release
@@ -27,17 +22,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
 
-      - name: Upload Compiled PDF
+      - name: Upload Release Asset
+        id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./assignment.pdf
-          asset_name: assignment.pdf
-          asset_content_type: application/pdf
+          asset_path: ./main.pdf
+          asset_name: main.pdf
+          asset_content_type: pdf
