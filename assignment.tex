@@ -32,7 +32,64 @@ To start this assignment, I created a new repository on GitHub named `latex`. Be
 \end{enumerate}
 
 \subsection{GitHub Actions for LaTeX Compilation}
+To automate the compilation of my LaTeX document, I set up a GitHub Actions workflow. Below are the steps I followed:
 
+\begin{enumerate}
+    \item Created a new directory in my repository named `.github/workflows` and added a file named `latex.yml`.
+    \item Wrote the following workflow code:
+    \begin{verbatim}
+      name: Build and Release LaTeX Document
+
+      on:
+        push:
+          tags:
+            - "*"
+      
+      permissions:
+        contents: write
+      
+      jobs:
+        build:
+          runs-on: ubuntu-latest
+          steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v3
+      
+            - name: Set up LaTeX
+              run: sudo apt-get update && sudo apt-get install -y texlive-full
+      
+            - name: Compile LaTeX Document
+              run: pdflatex -interaction=nonstopmode -halt-on-error -file-line-error assignment.tex
+      
+            - name: Create Release
+              id: create_release
+              uses: actions/create-release@v1
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                tag_name: ${{ github.ref_name }}
+                release_name: Release ${{ github.ref_name }}
+                draft: false
+                prerelease: false
+      
+            - name: Upload Compiled PDF
+              uses: actions/upload-release-asset@v1
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                upload_url: ${{ steps.create_release.outputs.upload_url }}
+                asset_path: ./assignment.pdf
+                asset_name: assignment.pdf
+                asset_content_type: application/pdf
+    \end{verbatim}
+    \item Committed the workflow file and pushed it to GitHub.
+    \item Created a tag using the following commands to test the workflow:
+    \begin{verbatim}
+    git tag v1.0
+    git push origin v1.0
+    \end{verbatim}
+    \item Verified that the workflow successfully compiled the LaTeX document and uploaded the PDF to the "Releases" section of the repository.
+\end{enumerate}
 
 \section{Exploration Tasks}
 \subsection{Vim Advanced Features}
