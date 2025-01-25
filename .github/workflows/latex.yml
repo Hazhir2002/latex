@@ -1,0 +1,27 @@
+name: Build LaTeX Document
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up LaTeX
+        run: sudo apt-get update && sudo apt-get install -y texlive-full
+
+      - name: Compile LaTeX Document
+        run: pdflatex -interaction=nonstopmode -halt-on-error -file-line-error assignment.tex
+
+      - name: Upload Compiled PDF
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./assignment.pdf
+          asset_name: assignment.pdf
+          asset_content_type: application/pdf
