@@ -1,5 +1,14 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage{listings}
+
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    columns=fullflexible,
+    frame=single,
+    captionpos=b
+}
 
 \title{Final Assignment: Computer Workshop Course}
 \author{Hazhir Yousefi}
@@ -59,7 +68,8 @@ To automate the compilation of my LaTeX document, I set up a GitHub Actions work
               run: sudo apt-get update && sudo apt-get install -y texlive-full
       
             - name: Compile LaTeX Document
-              run: pdflatex -interaction=nonstopmode -halt-on-error -file-line-error assignment.tex
+              run: pdflatex -interaction=nonstopmode -halt-on-error 
+              -file-line-error assignment.tex
       
             - name: Create Release
               id: create_release
