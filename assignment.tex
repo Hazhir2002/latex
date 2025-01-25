@@ -130,6 +130,16 @@ int *ptr = malloc(sizeof(int) * 100);
 \end{lstlisting}
 
 \subsubsection{Memory Profilers}
+\textbf{Purpose of Valgrind:}
+Valgrind is a tool that helps detect memory-related issues such as leaks, invalid accesses, and uninitialized memory.
+\begin{itemize}
+    \item Identifies locations of memory leaks in your code.
+    \item Tracks memory usage and helps optimize memory allocation.
+\end{itemize}
+\textbf{Example Command:}
+\begin{lstlisting}[language=bash]
+valgrind --leak-check=full ./your_program
+\end{lstlisting}
 
 \subsection{GNU/Linux Bash Scripting}
 
