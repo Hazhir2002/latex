@@ -93,7 +93,32 @@ To automate the compilation of my LaTeX document, I set up a GitHub Actions work
 
 \section{Exploration Tasks}
 \subsection{Vim Advanced Features}
+\subsubsection{Macros}
+Macros allow you to record and replay sequences of commands, which is useful for repetitive tasks.
+\begin{enumerate}
+    \item Press \texttt{q} followed by a register name (e.g., \texttt{q a} to record in register \texttt{a}).
+    \item Perform the actions you want to record.
+    \item Press \texttt{q} again to stop recording.
+    \item Replay the macro with \texttt{@a}.
+    \item Repeat multiple times using \texttt{N@a} (replace \texttt{N} with a number).
+\end{enumerate}
 
+\subsubsection{Visual Block Mode}
+Visual Block Mode allows you to select and manipulate text in a rectangular block.
+\begin{enumerate}
+    \item Press \texttt{Ctrl + v} to enter visual block mode.
+    \item Use arrow keys to select a rectangular area.
+    \item Press \texttt{I} (insert) or \texttt{A} (append) to modify the block.
+    \item Hit \texttt{Esc} to apply the changes.
+\end{enumerate}
+
+\subsubsection{Splits and Buffers}
+Splits and Buffers allow you to work with multiple files or views simultaneously.
+\begin{enumerate}
+    \item Open a horizontal split with \texttt{:split} or a vertical split with \texttt{:vsplit}.
+    \item Navigate between splits with \texttt{Ctrl + w} and arrow keys.
+    \item List open buffers with \texttt{:ls} and switch with \texttt{:b<N>} (replace \texttt{<N>} with the buffer number).
+\end{enumerate}
 
 \subsection{Memory Profiling}
 
